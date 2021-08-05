@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 require('dotenv').config();
 const googleMapApiKey = process.env.API_KEY;
@@ -10,6 +10,14 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
+  state = {
+    showingInfoWindow: false,  // Hides or shows the InfoWindow
+    activeMarker: {},          // Shows the active marker upon click
+    selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
+  };
+
+  
+
   render() {
     return (
       <Map
