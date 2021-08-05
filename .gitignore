@@ -11,6 +11,10 @@
 # production
 /build
 
+# Dotenv
+.env
+/public/env.js
+
 # misc
 .DS_Store
 .env.local
