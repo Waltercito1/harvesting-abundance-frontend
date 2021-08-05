@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
-require('dotenv').config();
-const googleMapApiKey = process.env.API_KEY;
-
-const mapStyles = {
-  width: '50%',
-  height: '50%'
-};
+import CurrentLocation from './Map';
 
 export class MapContainer extends Component {
   state = {
-    showingInfoWindow: false,  // This hides or shows the InfoWindow
-    activeMarker: {},          // This shows the active marker upon click
-    selectedPlace: {}          // This shows the InfoWindow to the selected place upon a marker
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
   };
 
   onMarkerClick = (props, marker, e) =>
-  this.setState({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true
-  });
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -30,25 +24,27 @@ export class MapContainer extends Component {
         activeMarker: null
       });
     }
-  };  
+  };
 
   render() {
     return (
-      <Map
+      <CurrentLocation
+        centerAroundCurrentLocation
         google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={
-          {
-            lat: 41.881832,
-            lng: -87.623177
-          }
-        }
-      />
+      >
+        <Marker onClick={this.onMarkerClick} name={'Current Location'} />
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}
+        >
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+          </div>
+        </InfoWindow>
+      </CurrentLocation>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: googleMapApiKey
-})(MapContainer);
+export default GoogleApiWrapper({ apiKey: 'AIzaSyDkca4Bf_b6X40UgqPQkxqvJ6k4bdO3I_0' })(MapContainer);
