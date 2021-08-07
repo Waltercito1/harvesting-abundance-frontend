@@ -3,11 +3,8 @@ import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 import CurrentLocation from './Map';
 
-require('dotenv').config()
+import env from 'react-dotenv';
 
-const key = process.env.API_KEY
-
-// debugger
 
 export class MapContainer extends Component {
   state = {
@@ -53,4 +50,4 @@ export class MapContainer extends Component {
   }
 }
 
-export default GoogleApiWrapper({ apiKey: key })(MapContainer);
+export default GoogleApiWrapper({ apiKey: env.API_KEY })(MapContainer);
