@@ -26,14 +26,27 @@ class TreeForm extends Component {
   render() {
     return(
       <div>
-          <h2>Add a New Tree:</h2>
-          <form onSubmit={this.handleSubmit}>
-              <label>Tree Name: </label>
+          <h4>Add a New Tree:</h4>
+          <form class="row g-3" onSubmit={this.handleSubmit}>
+            <div class="col-md-6">
+              <label htmlFor="name" class="form-label">Tree Name:</label>
+              <input type="text" class="form-control" id="tree-name" value={this.state.name} name='name' onChange={this.handleChange} />
+            </div>
+            <div class="col-md-6">
+              <label htmlFor="description" class="form-label">Description:</label>
+              <input type="text" class="form-control" id="tree-description" value={this.state.description} name='description' onChange={this.handleChange} />
+            </div>
+              {/* <label>Tree Name: </label>
               <input type='text' placeholder='name' value={this.state.name} name='name' onChange={this.handleChange} />
               <label>Description: </label>
               <input type='text' placeholder='description' value={this.state.description} name='description' onChange={this.handleChange} />
-              <input type="submit" value="Submit" /> 
+              <input type="submit" value="Submit" />  */}
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
           </form>
+          <br />  {/* remove line break */}
+          
       </div>
     );
   }

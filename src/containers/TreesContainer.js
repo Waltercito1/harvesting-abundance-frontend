@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TreeForm from '../components/trees/TreeForm'
-import Trees from '../components/trees/Tree'
+import Trees from '../components/trees/Trees'
+import { connect } from 'react-redux'
 
 class TreesContainer extends Component {
     render() {
@@ -13,4 +14,4 @@ class TreesContainer extends Component {
     }
 }
 
-export default TreesContainer
+export default connect()(TreesContainer)
