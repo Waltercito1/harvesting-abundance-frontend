@@ -36,14 +36,9 @@ class TreeForm extends Component {
               <label htmlFor="description" class="form-label">Description:</label>
               <input type="text" class="form-control" id="tree-description" value={this.state.description} name='description' onChange={this.handleChange} />
             </div>
-              {/* <label>Tree Name: </label>
-              <input type='text' placeholder='name' value={this.state.name} name='name' onChange={this.handleChange} />
-              <label>Description: </label>
-              <input type='text' placeholder='description' value={this.state.description} name='description' onChange={this.handleChange} />
-              <input type="submit" value="Submit" />  */}
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>
           <br />  {/* remove line break */}
           

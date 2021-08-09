@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MapContainer from './containers/MapContainer'
-import TreeForm from './components/trees/TreeForm'
+//import TreeForm from './components/trees/TreeForm'
 import { connect } from 'react-redux'
 import { fetchTrees } from './actions'
 import TreesContainer from './containers/TreesContainer'
