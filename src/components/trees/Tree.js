@@ -1,10 +1,10 @@
-import TreesContainer from "../../containers/TreesContainer"
 
-const Tree = ({name, description}) => {
+
+const Tree = (props) => {
 
     return(
         <div>
-
+            {props.Tree.name}
         </div>
     )
 }

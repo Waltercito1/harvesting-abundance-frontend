@@ -41,11 +41,14 @@ export function fetchTrees() {
             },
         })
         .then(resp => {
-            debugger
             if (resp.ok) {
                 return resp
                         .json()
-                        .then(json => dispatch({type: FETCH_TREES, payload: json}))
+                        .then(json => {
+                            //debugger
+                            dispatch( {type: FETCH_TREES, payload: json} ) 
+                        }
+                            )
             } else {
                 return resp
                         .json()

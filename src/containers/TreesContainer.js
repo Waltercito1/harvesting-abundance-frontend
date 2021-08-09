@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 
 class TreesContainer extends Component {
     render() {
+        //debugger
         return(
             <div>
-                <TreeForm tree={this.props.tree} />
+                <TreeForm />
                 <Trees trees={this.props.trees} />
             </div>
         )

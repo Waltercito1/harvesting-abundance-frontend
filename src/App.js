@@ -3,6 +3,7 @@ import MapContainer from './containers/MapContainer'
 import TreeForm from './components/trees/TreeForm'
 import { connect } from 'react-redux'
 import { fetchTrees } from './actions'
+import TreesContainer from './containers/TreesContainer'
 
 class App extends Component {
 
@@ -13,7 +14,8 @@ class App extends Component {
   render() {
     return(
       <div class="container fluid">
-        <TreeForm />
+        {/* <TreeForm /> */}
+        <TreesContainer trees={this.props.trees}/>
         <MapContainer />
       </div>
     )
@@ -22,9 +24,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (currentState) => {
-  debugger
+  //debugger
   return {
-    trees: currentState.trees.trees.data,
+    trees: currentState.trees.trees,
     loading: currentState.trees.loading,
     error: currentState.trees.error
   }
