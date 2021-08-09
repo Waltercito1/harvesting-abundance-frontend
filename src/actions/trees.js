@@ -35,12 +35,13 @@ export function addTree(tree){
 export function fetchTrees() {
     return(dispatch) => {
         dispatch({type: LOADING_DATA})
-        fetch("http://localhost:3000/todos", {
+        fetch("http://localhost:3000/trees", {
             headers: {
               "Content-Type": "application/json"
             },
         })
         .then(resp => {
+            debugger
             if (resp.ok) {
                 return resp
                         .json()

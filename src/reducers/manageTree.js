@@ -10,7 +10,8 @@ export const manageTree = (state = {
         case DATABASE_SAVING:
             return {...state, loading: action.payload}
         case FETCH_TREES:
-            return {todos: action.payload, loading: false, error: ""}
+            debugger
+            return {trees: action.payload, loading: false, error: ""}
         case ERROR:
             return {...state, error: action.payload}
         case ADD_TREE:
