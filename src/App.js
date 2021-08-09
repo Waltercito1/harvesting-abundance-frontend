@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-
 import CurrentLocation from './Map';
 import TreeForm from './components/trees/TreeForm';
-
 import env from 'react-dotenv';
 
 
@@ -36,7 +34,6 @@ export class MapContainer extends Component {
       centerAroundCurrentLocation
       google={this.props.google}
       >
-      <TreeForm />
         <Marker onClick={this.onMarkerClick} name={'Current Location'} />
         <InfoWindow
           marker={this.state.activeMarker}
@@ -47,7 +44,8 @@ export class MapContainer extends Component {
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
         </InfoWindow>
-      </CurrentLocation>
+      </CurrentLocation>,
+      <TreeForm />
     );
   }
 }

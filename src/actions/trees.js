@@ -33,7 +33,29 @@ export function addTree(tree){
 }
 
 export function fetchTrees() {
-
+    return(dispatch) => {
+        dispatch({type: LOADING_DATA})
+        fetch("http://localhost:3000/todos", {
+            headers: {
+              "Content-Type": "application/json"
+            },
+        })
+        .then(resp => {
+            if (resp.ok) {
+                return resp
+                        .json()
+                        .then(json => dispatch({type: FETCH_TREES, payload: json}))
+            } else {
+                return resp
+                        .json()
+                        .then((errors) => {
+                            dispatch({type: ERROR, payload: errors})
+                            return Promise.reject(errors);
+                        });
+            }
+        })
+        .catch(err => dispatch({type: ERROR, payload: err}))      
+    }
 }
 
 export function removeTree() {
