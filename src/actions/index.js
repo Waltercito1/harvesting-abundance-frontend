@@ -1,1 +1,1 @@
-    
+export {addTree, removeTree, fetchTrees} from './trees'
