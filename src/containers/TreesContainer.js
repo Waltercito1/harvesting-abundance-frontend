@@ -4,8 +4,13 @@ import Trees from '../components/trees/Trees'
 import { connect } from 'react-redux'
 
 class TreesContainer extends Component {
+    constructor(props) {
+        super(props)
+        console.log(props)
+    }
     render() {
         //debugger
+        console.log(this.props)
         return(
             <div>
                 <TreeForm />
