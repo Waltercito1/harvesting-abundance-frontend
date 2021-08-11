@@ -4,11 +4,11 @@ import CardGroup from 'react-bootstrap/CardGroup'
 
 const Trees = (props) => {
 
-    const createTreesFromList = () => {
-        return props.trees.map(tree => {
-            return <Tree tree={tree} />
-        })
-    }
+    // const createTreesFromList = () => {
+    //     return props.trees.map(tree => {
+    //         return <Tree tree={tree} />
+    //     })
+    // }
 
     return (
         <>

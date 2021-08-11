@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
 const Tree = (props) => {
-console.log('props', props)
+// console.log('props', props)
     return(
         <div>
             <Container fluid >

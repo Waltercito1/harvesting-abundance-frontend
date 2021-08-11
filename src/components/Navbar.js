@@ -1,5 +1,5 @@
 import React from 'react'
-//import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { checkAuth } from "../actions/index"
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
@@ -18,35 +18,83 @@ class Navigationbar extends React.Component {
         if (authChecked) {
           return loggedIn ? (
             <>
-            <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="/trees">Trees You've Added</Nav.Link>
-                        <Nav.Link href="/trees/new">Add location</Nav.Link>
-                        <Nav.Link href="/map">Map</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Logout/>
-                    </Nav>   
-                </Container>
-            </Navbar>
+                <NavLink
+                to='/'
+                exact
+                >Home</NavLink>
+                <NavLink
+                to="/trees"
+                exact
+                >Trees You've Added</NavLink>
+                <NavLink
+                to="/trees/new"
+                exact
+                >Add location</NavLink>
+                <Logout />
+                <NavLink
+                to='/map'
+                exact
+                >Map</NavLink>
+                <NavLink
+                to='/about'
+                exact
+                >About</NavLink>
             </>
+            // ,
+            // <>
+            // <Navbar bg="light" expand="lg">
+            //     <Container>
+            //         <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
+            //         <Nav className="me-auto">
+            //             <Nav.Link href="/trees">Trees You've Added</Nav.Link>
+            //             <Nav.Link href="/trees/new">Add location</Nav.Link>
+            //             <Nav.Link href="/map">Map</Nav.Link>
+            //             <Nav.Link href="/about">About</Nav.Link>
+            //             <Logout/>
+            //         </Nav>   
+            //     </Container>
+            // </Navbar>
+            // </>
           ) : (
             <>
-            <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="/trees">Trees You've Added</Nav.Link>
-                        <Nav.Link href="/trees/new">Add location</Nav.Link>
-                        <Nav.Link href="/map">Map</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/login">Login</Nav.Link>
-                        <Nav.Link href="/signup">Signup</Nav.Link>
-                    </Nav>   
-                </Container>
-            </Navbar>
+                <NavLink
+                to='/'
+                exact
+                >Home</NavLink>
+                <NavLink
+                to="/trees"
+                exact
+                >Trees You've Added</NavLink>
+                <NavLink
+                to="/trees/new"
+                exact
+                >Add location</NavLink>
+                <Logout />
+                <NavLink
+                to='/login'
+                exact
+                >Login</NavLink>
+                <NavLink
+                to='/signup'
+                exact
+                >Signup</NavLink>
             </>
+            // ,
+            //   <>
+            // <Navbar bg="light" expand="lg">
+            //     <Container>
+            //         <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
+            //         <Nav className="me-auto">
+            //             <Nav.Link href="/trees">Trees You've Added</Nav.Link>
+            //             <Nav.Link href="/trees/new">Add location</Nav.Link>
+            //             <Nav.Link href="/map">Map</Nav.Link>
+            //             <Nav.Link href="/about">About</Nav.Link>
+            //             <Nav.Link href="/login">Login</Nav.Link>
+            //             <Nav.Link href="/signup">Signup</Nav.Link>
+            //         </Nav>   
+            //     </Container>
+            // </Navbar>
+            // </>
           );
         } else {
           return null

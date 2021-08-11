@@ -7,10 +7,11 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import { connect } from 'react-redux'
-import { fetchTrees } from './actions'
+import { addTree, fetchTrees } from './actions'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import withAuth from "./components/WithAuth"
 import LoadingSpinner from './components/LoadingSpinner'
+import ErrorPage from './components/ErrorPage'
 
 class App extends Component {
 
@@ -19,6 +20,14 @@ class App extends Component {
   }
 
   render() {
+    if (!!this.props.loading) {
+      return <LoadingSpinner/>
+    }
+
+    if (!!this.props.error) {
+      return <ErrorPage error={this.props.error} />
+    }
+
     return(
       <div className="container fluid">
         <Router>
@@ -28,8 +37,9 @@ class App extends Component {
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
             <Route exact path="/trees" component={withAuth(TreesContainer)} />
-            <Route exact path="/trees/new" component={TreeForm} />
+            <Route exact path="/trees/new" component={withAuth(TreeForm)} />
             <Route exact path="/map" component={MapContainer}/>
+            <Route component={ErrorPage} />
           </Switch>
         </Router>
         {/* <TreeForm /> */}
@@ -52,9 +62,9 @@ const mapStateToProps = (currentState) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    fetchTrees: () => dispatch(fetchTrees())
+    fetchTrees: () => dispatch(fetchTrees()),
+    addTree: () => dispatch(addTree())
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatch)(App)
