@@ -17,6 +17,8 @@ const Navigationbar = (props) => {
                     <Nav.Link href="/trees/new">Add location</Nav.Link>
                     <Nav.Link href="/map">Map</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
+                    <Nav.Link href="/login">Login</Nav.Link>
+                    <Nav.Link href="/signup">Signup</Nav.Link>
                 </Nav>   
             </Container>
         </Navbar>
