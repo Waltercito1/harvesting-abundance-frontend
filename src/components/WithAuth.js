@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { checkAuth } from "../actions/index"
-import LoadingIndicator from "./LoadingIndicator"
+import LoadingSpinner from "./LoadingSpinner"
 import Login from "./Login"
 
 function withAuth(WrappedComponent) {
@@ -13,7 +13,7 @@ function withAuth(WrappedComponent) {
 
     render() {
       if (!this.props.authChecked) {
-        return <LoadingIndicator />
+        return <LoadingSpinner />
       } else if (!this.props.loggedIn) {
         return (
           <>
