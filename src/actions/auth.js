@@ -14,6 +14,11 @@ const getToken = () => {
     }
 }
 
+const removeToken = () => {
+  localStorage.removeItem("token")
+  setToken(null)
+}
+
 export const signupUser = (credentials) => {
     return (dispatch) => {
         return fetch("http://localhost:3000/signup", {
@@ -79,7 +84,8 @@ export const loginUser = (credentials) => {
             },
         }).then((res) => {
             if (res.ok) {
-                return dispatch({ type: NOT_AUTHENTICATED })
+              removeToken()
+              return dispatch({ type: NOT_AUTHENTICATED })
             } else {
                 return res.json().then((errors) => {
                     dispatch({ type: NOT_AUTHENTICATED })

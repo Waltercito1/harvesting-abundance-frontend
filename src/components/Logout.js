@@ -12,7 +12,6 @@ const Logout = ({ logoutUser }) => {
   };
 
   return (
-    // <a href="" onClick={handleClick}>Logout</a>,
     <Nav.Link href="/" onClick={handleClick}>Logout</Nav.Link>
   );
 };
