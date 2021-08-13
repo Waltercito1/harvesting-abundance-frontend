@@ -3,7 +3,7 @@ import CardGroup from 'react-bootstrap/CardGroup'
 //import {connect} from "react-redux"
 
 const Trees = (props) => {
-
+    // debugger
     // const createTreesFromList = () => {
     //     return props.trees.map(tree => {
     //         return <Tree tree={tree} />
