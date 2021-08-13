@@ -86,7 +86,7 @@ class Navigationbar extends React.Component {
                     <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="/trees">Trees You've Added</Nav.Link>
-                        <Nav.Link href="/trees/new">Add location</Nav.Link>
+                        <Nav.Link href="/locations/new">Add location</Nav.Link>
                         <Nav.Link href="/map">Map</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
