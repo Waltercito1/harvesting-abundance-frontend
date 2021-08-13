@@ -42,9 +42,9 @@ class App extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </Router>
-        {/* <TreeForm /> */}
+        {/* <TreeForm />
         <TreesContainer trees={this.props.trees}/>
-        <MapContainer />
+        <MapContainer /> */}
       </div>
     )
   }
