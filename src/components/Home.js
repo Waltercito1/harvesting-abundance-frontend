@@ -1,8 +1,11 @@
+import MapContainer from '../containers/MapContainer'
+
 const Home = () => {
     
     return (
         <div>
-            Simple Landing Page for Now
+            Landing Page - Work In Progress
+            <MapContainer />
         </div>
     )
 }
