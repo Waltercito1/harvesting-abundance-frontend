@@ -16,7 +16,7 @@ const getToken = () => {
 
 const removeToken = () => {
   localStorage.removeItem("token")
-  setToken(null)
+  //setToken(null)
 }
 
 export const signupUser = (credentials) => {
@@ -83,8 +83,8 @@ export const loginUser = (credentials) => {
                 Authorization: getToken(),
             },
         }).then((res) => {
+            removeToken()
             if (res.ok) {
-              removeToken()
               return dispatch({ type: NOT_AUTHENTICATED })
             } else {
                 return res.json().then((errors) => {
