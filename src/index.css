@@ -60,4 +60,8 @@ border-radius: 20px;
   margin-top: 20px;
 }
 
-
+.card {
+  width: 18rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
