@@ -5,9 +5,9 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
 const Tree = (props) => {
-// console.log('props', props)
+
     return(
-        <div>
+        <div key={props.tree.attributes.id}>
             <Container fluid >
                 <Row>
                     <Col>

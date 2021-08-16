@@ -4,11 +4,11 @@ import Trees from '../components/trees/Trees'
 import { connect } from 'react-redux'
 
 class TreesContainer extends Component {
-
+    
     render() {
         return(
             <div>
-                <TreeForm />
+                {/* <TreeForm /> */}
                 <Trees trees={this.props.trees} />
             </div>
         )
