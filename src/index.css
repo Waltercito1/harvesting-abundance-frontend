@@ -65,3 +65,17 @@ border-radius: 20px;
   margin-top: 1rem;
   padding-top: 1rem;
 }
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+.footer{
+  /* margin-top: 1rem; */
+  /* padding: 1rem; */
+  /* background-color: rgb(235, 195, 64); */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

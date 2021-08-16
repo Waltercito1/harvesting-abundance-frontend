@@ -11,7 +11,9 @@ import { addTree, fetchTrees } from './actions'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import withAuth from "./components/WithAuth"
 import LoadingSpinner from './components/LoadingSpinner'
+import About from './components/About'
 import ErrorPage from './components/ErrorPage'
+import Footer from './components/Footer'
 
 class App extends Component {
 
@@ -37,14 +39,14 @@ class App extends Component {
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
             <Route exact path="/trees" component={withAuth(TreesContainer)} />
-            <Route exact path="/locations/new" component={withAuth(TreeForm)} />
+            <Route exact path="/new" component={withAuth(TreeForm)} />
             <Route exact path="/map" component={MapContainer}/>
+            <Route exact path="/about" component={About}/>
             <Route component={ErrorPage} />
           </Switch>
         </Router>
-        {/* <TreeForm />
-        <TreesContainer trees={this.props.trees}/>
-        <MapContainer /> */}
+        {/* <TreeForm /> */}
+        <Footer />
       </div>
     )
   }
