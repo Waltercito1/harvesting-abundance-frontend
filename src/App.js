@@ -38,8 +38,8 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
-            <Route exact path="/trees" component={withAuth(TreesContainer)} />
             <Route exact path="/new" component={withAuth(TreeForm)} />
+            <Route exact path="/trees" component={withAuth(TreesContainer)} />
             <Route exact path="/map" component={MapContainer}/>
             <Route exact path="/about" component={About}/>
             <Route component={ErrorPage} />
