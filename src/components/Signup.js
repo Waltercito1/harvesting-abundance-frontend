@@ -80,7 +80,9 @@ class Signup extends React.Component {
               />
           </div>
           <div class="form-group">
-              <button type="submit" class="btn btn-block create-account">Create Account</button>
+            <div style={{textAlignLast: 'center'}} >
+                <button type="submit" class="btn btn-block create-account">Create Account</button>
+            </div>
           </div>
       </form>
   </div>

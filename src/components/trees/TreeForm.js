@@ -58,27 +58,27 @@ class TreeForm extends Component {
       
       render() {
     return(
-      <div>
+      <div className="new-tree-form">
           <h4>Add a New Tree:</h4>
           <form className="row g-3" onSubmit={this.handleSubmit}>
             <div className="col-md-6">
               <label htmlFor="name" className="form-label">Tree Name:</label>
-              <input type="text" className="form-control" id="tree-name" value={this.state.tree.name} name='name' onChange={this.handleChange} />
+              <input type="text" className="form-control item" id="tree-name" value={this.state.tree.name} name='name' onChange={this.handleChange} />
             </div>
             <div className="col-md-6">
               <label htmlFor="description" className="form-label">Description:</label>
-              <input type="text" className="form-control" id="tree-description" value={this.state.tree.description} name='description' onChange={this.handleChange} />
+              <input type="text" className="form-control item" id="tree-description" value={this.state.tree.description} name='description' onChange={this.handleChange} />
             </div>
             <div className="col-md-6">
               <label htmlFor="latitude" className="form-label">Latitude:</label>
-              <input type="text" className="form-control" id="location-latitude" value={this.state.tree.locations_attributes.latitude} name='latitude' onChange={this.handleChange} />
+              <input type="text" className="form-control item" id="location-latitude" value={this.state.tree.locations_attributes.latitude} name='latitude' onChange={this.handleChange} />
             </div>
             <div className="col-md-6">
               <label htmlFor="longitude" className="form-label">Longitude:</label>
-              <input type="text" className="form-control" id="location-longitude" value={this.state.tree.locations_attributes.longitude} name='longitude' onChange={this.handleChange} />
+              <input type="text" className="form-control item" id="location-longitude" value={this.state.tree.locations_attributes.longitude} name='longitude' onChange={this.handleChange} />
             </div>
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary">Submit</button>
+            <div className="col-12" style={{textAlignLast: 'center'}}>
+              <button type="submit" className="btn btn-primary submit-tree">Add Tree</button>
             </div>
           </form>
           <br />  {/* remove line break */}

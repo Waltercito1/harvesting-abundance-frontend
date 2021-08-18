@@ -56,7 +56,7 @@ class Login extends React.Component {
             />
           </div>
           <div className="form-group">
-              <div className="btn-align">
+              <div style={{textAlignLast: 'center'}} >
                 <button type="submit" className="btn btn-block create-account">Log In</button>
               </div>
           </div>
