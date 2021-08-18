@@ -16,10 +16,9 @@ export function addTree(tree){
             method: 'POST',
             headers: {
                 accept: 'application/json',
-                'Content-Type': 'application/json',
                 Authorization: getToken()
             },
-            body: JSON.stringify(tree)
+            body: tree
         }
 
     dispatch({type: DATABASE_SAVING, payload: true})

@@ -4,6 +4,8 @@ import { addTree } from '../../actions/index'
 
 class TreeForm extends Component {
 
+  imageFile = React.createRef()
+
   // newLocation = {
   //   latitude: null,
   //   longitude: null
@@ -13,7 +15,8 @@ class TreeForm extends Component {
     tree: {
       name: '',
       description: '',
-      locations_attributes: {latitude: null, longitude: null}
+      latitude: null,
+      longitude: null
     }
   }
 
@@ -47,11 +50,13 @@ class TreeForm extends Component {
       
       handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addTree(this.state) // add other params to be sent to action
+        const formData = new FormData(e.target)
+        this.props.addTree(formData)
         this.setState({
           name: '',
           description: '',
-          locations_attributes: [Object.assign({}, this.newLocation)]
+          latitude: null,
+          longitude: null
         })
         this.props.history.push("/trees")
       }
@@ -63,19 +68,57 @@ class TreeForm extends Component {
           <form className="row g-3" onSubmit={this.handleSubmit}>
             <div className="col-md-6">
               <label htmlFor="name" className="form-label">Tree Name:</label>
-              <input type="text" className="form-control item" id="tree-name" value={this.state.tree.name} name='name' onChange={this.handleChange} />
+              <input 
+              type="text" 
+              className="form-control item" 
+              id="tree-name" 
+              value={this.state.tree.name} 
+              name='name' 
+              onChange={this.handleChange} 
+              />
             </div>
             <div className="col-md-6">
               <label htmlFor="description" className="form-label">Description:</label>
-              <input type="text" className="form-control item" id="tree-description" value={this.state.tree.description} name='description' onChange={this.handleChange} />
+              <input 
+              type="text" 
+              className="form-control item" 
+              id="tree-description" 
+              value={this.state.tree.description} 
+              name='description' 
+              onChange={this.handleChange} 
+              />
             </div>
             <div className="col-md-6">
               <label htmlFor="latitude" className="form-label">Latitude:</label>
-              <input type="text" className="form-control item" id="location-latitude" value={this.state.tree.locations_attributes.latitude} name='latitude' onChange={this.handleChange} />
+              <input 
+              type="text" 
+              className="form-control item" 
+              id="location-latitude" 
+              value={this.state.tree.latitude} 
+              name='latitude' 
+              onChange={this.handleChange} 
+              />
             </div>
             <div className="col-md-6">
               <label htmlFor="longitude" className="form-label">Longitude:</label>
-              <input type="text" className="form-control item" id="location-longitude" value={this.state.tree.locations_attributes.longitude} name='longitude' onChange={this.handleChange} />
+              <input 
+              type="text" 
+              className="form-control item" 
+              id="location-longitude" 
+              value={this.state.tree.longitude} 
+              name='longitude' 
+              onChange={this.handleChange} 
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="image" className="form-label">Add an image:</label>
+              <input 
+              type="file" 
+              className="form-control item" 
+              id="main-image" 
+              name='main_image' 
+              ref={this.imageFile}
+              />
             </div>
             <div className="col-12" style={{textAlignLast: 'center'}}>
               <button type="submit" className="btn btn-primary submit-tree">Add Tree</button>

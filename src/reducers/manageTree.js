@@ -15,6 +15,7 @@ export const manageTree = (state = {
         case ERROR:
             return {...state, error: action.payload}
         case ADD_TREE:
+            debugger
             return {...state, trees: [ ...state.trees, action.payload], loading: false}
         case REMOVE_TREE:
             const trees = state.trees.filter(tree => tree.id !== action.id);
