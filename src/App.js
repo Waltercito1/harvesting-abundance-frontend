@@ -7,7 +7,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import { connect } from 'react-redux'
-import { addTree, fetchTrees } from './actions'
+import { addTree, fetchTrees, removeTree } from './actions'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import withAuth from "./components/WithAuth"
 import LoadingSpinner from './components/LoadingSpinner'
@@ -39,7 +39,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
-            <Route exact path="/new" component={withAuth(TreeForm)} />
+            <Route exact path="/trees/new" component={withAuth(TreeForm)} />
             <Route exact path="/trees" component={withAuth(TreesContainer)} />
             <Route exact path="/map" component={MapContainer}/>
             <Route exact path="/about" component={About}/>
@@ -67,7 +67,8 @@ const mapStateToProps = (currentState) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchTrees: () => dispatch(fetchTrees()),
-    addTree: () => dispatch(addTree())
+    addTree: () => dispatch(addTree()),
+    removeTree: (treeId) => dispatch(removeTree(treeId)),
   }
 }
 

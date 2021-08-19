@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import { connect } from 'react-redux'
 import Logout from './Logout'
+import { NavLink } from 'react-router-dom'
 
 
 class Navigationbar extends React.Component {
@@ -21,10 +22,10 @@ class Navigationbar extends React.Component {
                 <Container>
                     <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="/trees">Trees You've Added</Nav.Link>
-                        <Nav.Link href="/new">Add location</Nav.Link>
-                        <Nav.Link href="/map">Map</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/trees">Trees You've Added</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/trees/new">Add location</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/map">Map</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
                         <Logout/>
                     </Nav>   
                 </Container>
