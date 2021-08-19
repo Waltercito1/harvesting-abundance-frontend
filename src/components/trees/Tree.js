@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import { Link } from 'react-router-dom'
 
 const Tree = (props) => {
 
@@ -17,6 +18,12 @@ const Tree = (props) => {
                         <Card.Title>{props.tree.attributes.name}</Card.Title>
                         <Card.Text>
                             {props.tree.attributes.description}
+                        </Card.Text>
+                        <Card.Text>
+                        <Link
+                        to={{pathname:`/trees/${props.tree.attributes.id}`, state: props.tree.attributes}} 
+                        // state={{...props.tree.attributes}}
+                        ><p>See details</p></Link>
                         </Card.Text>
                         </Card.Body>
                     </Card>

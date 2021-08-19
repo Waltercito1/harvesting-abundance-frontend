@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { createStore, applyMiddleware, compose } from "redux"
+import { createStore, applyMiddleware } from "redux"  //, compose 
 import { Provider } from "react-redux"
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'

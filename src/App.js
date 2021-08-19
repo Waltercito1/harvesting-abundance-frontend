@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Navigationbar from './components/Navbar'
 import MapContainer from './containers/MapContainer'
+import Navigationbar from './components/Navbar'
 import TreesContainer from './containers/TreesContainer'
 import TreeForm from './components/trees/TreeForm'
 import Home from './components/Home'
@@ -14,6 +14,7 @@ import LoadingSpinner from './components/LoadingSpinner'
 import About from './components/About'
 import ErrorPage from './components/ErrorPage'
 import Footer from './components/Footer'
+import ShowTree from './components/trees/ShowTree'
 
 class App extends Component {
 
@@ -42,6 +43,7 @@ class App extends Component {
             <Route exact path="/trees" component={withAuth(TreesContainer)} />
             <Route exact path="/map" component={MapContainer}/>
             <Route exact path="/about" component={About}/>
+            <Route path="/trees/:id" render={(routeProps) => <ShowTree {...routeProps}/>} />
             <Route component={ErrorPage} />
           </Switch>
         </Router>
