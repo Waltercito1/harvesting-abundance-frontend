@@ -6,11 +6,6 @@ class TreeForm extends Component {
 
   imageFile = React.createRef()
 
-  // newLocation = {
-  //   latitude: null,
-  //   longitude: null
-  // }
-
   state = {
     tree: {
       name: '',
@@ -88,7 +83,7 @@ class TreeForm extends Component {
               onChange={this.handleChange} 
               />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-5">
               <label htmlFor="latitude" className="form-label">Latitude:</label>
               <input 
               type="text" 
@@ -99,7 +94,7 @@ class TreeForm extends Component {
               onChange={this.handleChange} 
               />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-5">
               <label htmlFor="longitude" className="form-label">Longitude:</label>
               <input 
               type="text" 
@@ -109,6 +104,9 @@ class TreeForm extends Component {
               name='longitude' 
               onChange={this.handleChange} 
               />
+            </div>
+            <div className="col-md-2" >
+              <button className="btn btn-info">Use My Location</button>
             </div>
             <div className="col-md-6">
               <label htmlFor="image" className="form-label">Add an image:</label>
