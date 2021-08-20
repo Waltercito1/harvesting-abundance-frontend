@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import { removeTree } from '../../actions/index'
 
 const ShowTree = (props) => {
-    //debugger
+    debugger
 
 
     const handleClick = () => {
@@ -29,7 +29,7 @@ const ShowTree = (props) => {
                 <div >
                 <div class="row align-items-stretch">
                     <div class="col-md-8 aos-init aos-animate" >
-                        <img src={formatImg()} alt="treeImage" class="img-fluid" style={{objectFit: 'cover', padding: '0 0 0 1em'}}/>
+                        <img src={formatImg()} alt="treeImage" class="img-fluid" width={600}style={{objectFit: 'cover', padding: '0 0 0 1em'}}/>
                     </div>
                     <div class="col-md-3 ml-auto" >
                     <div class="sticky-content">

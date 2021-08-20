@@ -20,7 +20,7 @@ class Navigationbar extends React.Component {
             <>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
+                    <Navbar.Brand as={NavLink} exact to="/"><img height={40} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={NavLink} exact to="/trees">Trees You've Added</Nav.Link>
                         <Nav.Link as={NavLink} exact to="/trees/new">Add location</Nav.Link>
@@ -35,7 +35,7 @@ class Navigationbar extends React.Component {
             <>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand exact href="/">LOGO</Navbar.Brand>
+                <Navbar.Brand as={NavLink} exact to="/"><img height={40} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="/new">Add location</Nav.Link>
                         <Nav.Link href="/map">Map</Nav.Link>

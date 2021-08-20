@@ -29,7 +29,7 @@ class Login extends React.Component {
       <div class="registration-form">
       <form onSubmit={this.handleSubmit}>
           <div className="form-icon">
-              <span><i className="icon icon-user"></i></span>
+          <span><img height={120} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></span>
           </div>
           <div className="form-group"><p>Please login to your account</p></div>
             <p color="#ff1900">{this.state.error && "Invalid email or password"}</p>

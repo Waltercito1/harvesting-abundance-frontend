@@ -33,6 +33,9 @@ class Signup extends React.Component {
           <div class="form-icon">
               <span><i class="icon icon-user"></i></span>
           </div>
+          <div className="form-icon">
+          <span><img height={120} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></span>
+          </div>
           <p>Please complete the fields below:</p>
             <p color="#ff1900">{this.state.error && "Invalid email or password"}</p>
           <div class="form-group">
