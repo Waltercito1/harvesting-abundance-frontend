@@ -37,11 +37,11 @@ class Navigationbar extends React.Component {
                 <Container>
                 <Navbar.Brand as={NavLink} exact to="/"><img height={40} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="/new">Add location</Nav.Link>
-                        <Nav.Link href="/map">Map</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/login">Login</Nav.Link>
-                        <Nav.Link href="/signup">Signup</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/trees/new">Add location</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/map">Map</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/login">Login</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/signup">Signup</Nav.Link>
                     </Nav>   
                 </Container>
             </Navbar>
