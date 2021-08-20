@@ -7,13 +7,15 @@ import { Link } from 'react-router-dom'
 
 const Tree = (props) => {
 
+    const formatImg = () => props.tree.attributes.image_format ? props.tree.attributes.image_format.url : "https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg"
+
     return(
         <div key={props.tree.attributes.id}>
             <Container fluid >
                 <Row>
                     <Col>
                     <Card>
-                        <Card.Img variant="top" src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg" width={300} height={300} />
+                        <Card.Img variant="top" src={formatImg()} width={300} height={300} />
                         <Card.Body>
                         <Card.Title>{props.tree.attributes.name}</Card.Title>
                         <Card.Text>

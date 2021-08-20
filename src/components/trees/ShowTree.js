@@ -1,12 +1,21 @@
 //import { Link } from 'react-router-dom'
 import React from "react"
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Container'
+import { removeTree } from '../../actions/index'
 
 const ShowTree = (props) => {
     //debugger
+
+
+    const handleClick = () => {
+        removeTree(props.location.state.id)
+        props.history.push("/trees")
+    }
+
+    const formatImg = () => props.location.state.image_format ? props.location.state.image_format.url : "https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg"
     
-    
+    const conditionalBttns = () => props.location.state === "/" ? <></> : <button className="btn btn-danger" onClick={() => handleClick()}>Delete</button>
+
     return(
         <div>
         <Container fluid >
@@ -20,7 +29,7 @@ const ShowTree = (props) => {
                 <div >
                 <div class="row align-items-stretch">
                     <div class="col-md-8 aos-init aos-animate" >
-                    <img src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg" width={600} alt="treeImage" class="img-fluid"/>
+                    <img src={formatImg()} width={600} alt="treeImage" class="img-fluid"/>
                     </div>
                     <div class="col-md-3 ml-auto aos-init aos-animate" >
                     <div class="sticky-content">
