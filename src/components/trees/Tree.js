@@ -15,7 +15,7 @@ const Tree = (props) => {
                 <Row>
                     <Col>
                     <Card>
-                        <Card.Img variant="top" src={formatImg()} width={300} height={300} />
+                        <Card.Img variant="top" src={formatImg()} width={200} height={300} style={{objectFit: 'cover', padding: '1em'}} />
                         <Card.Body>
                         <Card.Title>{props.tree.attributes.name}</Card.Title>
                         <Card.Text>

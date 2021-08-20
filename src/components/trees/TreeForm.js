@@ -122,8 +122,7 @@ class TreeForm extends Component {
               <button type="submit" className="btn btn-primary submit-tree">Add Tree</button>
             </div>
           </form>
-          <br />  {/* remove line break */}
-          
+          <br />          
       </div>
     );
   }

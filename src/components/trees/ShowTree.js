@@ -29,9 +29,9 @@ const ShowTree = (props) => {
                 <div >
                 <div class="row align-items-stretch">
                     <div class="col-md-8 aos-init aos-animate" >
-                    <img src={formatImg()} width={600} alt="treeImage" class="img-fluid"/>
+                        <img src={formatImg()} alt="treeImage" class="img-fluid" style={{objectFit: 'cover', padding: '0 0 0 1em'}}/>
                     </div>
-                    <div class="col-md-3 ml-auto aos-init aos-animate" >
+                    <div class="col-md-3 ml-auto" >
                     <div class="sticky-content">
                         <h3 class="h3">Location</h3>
                         <p class="mb-4"><span class="text-muted">Latitude: {props.location.state.locations[0].latitude}</span></p>
