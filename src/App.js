@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 import { addTree, fetchTrees, removeTree } from './actions'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import withAuth from "./components/WithAuth"
-import LoadingSpinner from './components/LoadingSpinner'
 import About from './components/About'
 import ErrorPage from './components/ErrorPage'
 import Footer from './components/Footer'
@@ -26,9 +25,6 @@ class App extends Component {
   }
 
   render() {
-    // if (!!this.props.loading) {
-    //   return <LoadingSpinner/>
-    // }
 
     if (!!this.props.error) {
       return <ErrorPage error={this.props.error} />
