@@ -1,5 +1,5 @@
 //import { Link } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
+//import { Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import { removeTree } from '../../actions/index'
