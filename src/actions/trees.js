@@ -9,6 +9,20 @@ const getToken = () => {
     }
 }
 
+const checkForType = (json) => {
+    for (const el in json) {
+        if (el === "id") {
+            console.log('found ID', json[el])
+            json[el] = parseInt(json[el])
+        }
+        else if (typeof json[el] === 'object') {
+            console.log('this was an object', json[el])
+            checkForType(json[el])
+        }
+    }
+    return json  
+}
+
 export function addTree(tree){
 
     return(dispatch) => {
@@ -27,7 +41,10 @@ export function addTree(tree){
             if (resp.ok) {
                 return resp
                         .json()
-                        .then(json => dispatch({type: ADD_TREE, payload: json.data}))
+                        .then(json => {
+                            checkForType(json)    
+                            dispatch({type: ADD_TREE, payload: json.data})
+                        })
             } else {
                 return resp
                         .json()
@@ -37,7 +54,7 @@ export function addTree(tree){
                         })
             }
         })
-        .catch(err => dispatch({type: ERROR, payload: err})) 
+        // .catch(err => dispatch({type: ERROR, payload: err})) 
     }
 }
 
@@ -54,10 +71,10 @@ export function fetchTrees() {
                 return resp
                         .json()
                         .then(json => {
-                            //debugger
+                            console.log(json)
+                            checkForType(json)
                             dispatch( {type: FETCH_TREES, payload: json} ) 
-                        }
-                            )
+                        })
             } else {
                 return resp
                         .json()
@@ -67,7 +84,7 @@ export function fetchTrees() {
                         });
             }
         })
-        .catch(err => dispatch({type: ERROR, payload: err}))      
+        // .catch(err => dispatch({type: ERROR, payload: err}))      
     }
 }
 
@@ -76,15 +93,16 @@ export const removeTree = (treeId) => (dispatch) => {
             method: "DELETE",
             headers: {
                 accept: "application/json",
-                Authorization: getToken(),
-                // "Content-Type": "application/json"
+                Authorization: getToken()
             }
         }
         dispatch({type: DATABASE_INSPECTING, payload: true})
-        return fetch(`http://localhost:3000/trees/${treeId}`, configObj)
+        fetch(`http://localhost:3000/trees/${treeId}`, configObj)
         .then(resp => {
             if (resp.ok) {
-                dispatch({type: REMOVE_TREE, payload: treeId})
+                return resp
+                .json()
+                .then(dispatch({type: REMOVE_TREE, payload: parseInt(treeId)}))
             } else {
                 return resp
                     .json()
