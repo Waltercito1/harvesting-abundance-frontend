@@ -10,8 +10,8 @@ class TreeForm extends Component {
     tree: {
       name: '',
       description: '',
-      latitude: null,
-      longitude: null
+      latitude: undefined,
+      longitude: undefined
     }
   }
 

@@ -16,6 +16,9 @@ import ErrorPage from './components/ErrorPage'
 import Footer from './components/Footer'
 import ShowTree from './components/trees/ShowTree'
 
+const AuthenticatedShowTree = withAuth(ShowTree) 
+const AuthenticatedTreesContainer = withAuth(TreesContainer) 
+
 class App extends Component {
 
   componentDidMount() {
@@ -23,9 +26,9 @@ class App extends Component {
   }
 
   render() {
-    if (!!this.props.loading) {
-      return <LoadingSpinner/>
-    }
+    // if (!!this.props.loading) {
+    //   return <LoadingSpinner/>
+    // }
 
     if (!!this.props.error) {
       return <ErrorPage error={this.props.error} />
@@ -36,18 +39,18 @@ class App extends Component {
         <Router>
           <Navigationbar />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path='/signup' component={Signup} />
-            <Route exact path='/login' component={Login} />
+            <Route exact path="/" component={withAuth(Home)} />
+            <Route exact path='/signup' component={withAuth(Signup)} />
+            <Route exact path='/login' component={withAuth(Login)} />
             <Route exact path="/trees/new" component={withAuth(TreeForm)} />
-            <Route exact path="/trees" component={withAuth(TreesContainer)} />
-            <Route exact path="/map" component={MapContainer}/>
-            <Route exact path="/about" component={About}/>
-            <Route path="/trees/:id" render={(routeProps) => <ShowTree {...routeProps}/>} />
+            <Route exact path="/trees" render={routeProps => (<AuthenticatedTreesContainer {...routeProps}/>)} />
+            <Route exact path="/map" component={withAuth(MapContainer)}/>
+            <Route exact path="/about" component={withAuth(About)}/>
+            <Route exact path="/trees/:id" render={routeProps => (<AuthenticatedShowTree {...routeProps}/>)}/>
+            
             <Route component={ErrorPage} />
           </Switch>
         </Router>
-        {/* <TreeForm /> */}
         <Footer />
       </div>
     )

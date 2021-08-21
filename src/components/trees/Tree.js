@@ -21,12 +21,12 @@ const Tree = (props) => {
                         <Card.Text>
                             {props.tree.attributes.description}
                         </Card.Text>
-                        <Card.Text>
+                        {/* <Card.Text> */}
                         <Link
                         to={{pathname:`/trees/${props.tree.attributes.id}`, state: props.tree.attributes}} 
                         // state={{...props.tree.attributes}}
                         ><p>See details</p></Link>
-                        </Card.Text>
+                        {/* </Card.Text> */}
                         </Card.Body>
                     </Card>
                     </Col>

@@ -71,33 +71,28 @@ export function fetchTrees() {
     }
 }
 
-export function removeTree(treeId){
-    debugger
-    return (dispatch) => {
+export const removeTree = (treeId) => (dispatch) => {
         const configObj = {
             method: "DELETE",
             headers: {
                 accept: "application/json",
                 Authorization: getToken(),
-                "Content-Type": "application/json"
+                // "Content-Type": "application/json"
             }
         }
         dispatch({type: DATABASE_INSPECTING, payload: true})
-        fetch(`http://localhost:3000/trees/${treeId}`, configObj)
+        return fetch(`http://localhost:3000/trees/${treeId}`, configObj)
         .then(resp => {
             if (resp.ok) {
-                return resp
-                        .json()
-                        .then(json => dispatch({type: REMOVE_TREE, payload: treeId}))
+                dispatch({type: REMOVE_TREE, payload: treeId})
             } else {
                 return resp
-                        .json()
-                        .then((errors) => {
-                            dispatch({type: ERROR, payload: errors})
-                            return Promise.reject(errors);
-                        });
+                    .json()
+                    .then((errors) => {
+                        dispatch({type: ERROR, payload: errors})
+                        return Promise.reject(errors);
+                    });
             }
         })
-        .catch(err => dispatch({type: ERROR, payload: err}))
+        // .catch(err => dispatch({type: ERROR, payload: err}))
     }
-}
