@@ -12,7 +12,7 @@ function withAuth(WrappedComponent) {
     }
 
     render() {
-      if (!this.props.authChecked) {
+      if (!this.props.authChecked || this.props.loading) {
         return <LoadingSpinner />
       } else if (!this.props.loggedIn) {
         return (
@@ -27,8 +27,8 @@ function withAuth(WrappedComponent) {
     }
   }
 
-  const mapStateToProps = ({auth: { authChecked, loggedIn, currentUser }}) => {
-    return { authChecked, loggedIn, currentUser }
+  const mapStateToProps = ({auth: { authChecked, loggedIn, currentUser }, trees: {loading}}) => {
+    return { authChecked, loggedIn, currentUser, loading }
   }
 
   const mapDispatchToProps = (dispatch) => {
