@@ -64,10 +64,11 @@ class TreeForm extends Component {
         console.log(err)
       })
     }      
-      
-      render() {
-    return(
-      <div className="new-tree-form">
+
+    
+    render() {
+      return(
+        <div className="new-tree-form">
         {this.props.errors && <>{Object.entries(this.props.errors).map(err => <p style={errorMsgStyles}>{`${err[0]}: ${err[1]}`}</p>)}</>}
           <h4>Add a New Tree:</h4>
           <form className="row g-3" onSubmit={this.handleSubmit}>
@@ -115,9 +116,9 @@ class TreeForm extends Component {
               onChange={this.handleChange} 
               />
             </div>
-            <div className="col-md-2" >
+            {/* <div className="col-md-2" >
               <button className="btn btn-sm btn-info">Use My Location</button>
-            </div>
+            </div> */}
             <div className="col-md-6">
               <label htmlFor="image" className="form-label">Add an image:</label>
               <input 

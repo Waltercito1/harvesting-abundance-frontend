@@ -23,7 +23,7 @@ class Signup extends React.Component {
     this.props
       .signupUser({ first_name, last_name, email, password })
       .then(() => this.props.history.push("/"))
-      .catch((errors) => this.setState({ errors }))
+      .catch((errors) => {this.setState({ errors })})
   };
 
   render() {
@@ -37,7 +37,7 @@ class Signup extends React.Component {
           <span><img height={120} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></span>
           </div>
           <p>Please complete the fields below:</p>
-            <p color="#ff1900">{this.state.error && "Invalid email or password"}</p>
+            <p style={{color: 'red'}}>{this.state.errors.status.message}</p>
           <div class="form-group">
               <input 
               type="text" 
