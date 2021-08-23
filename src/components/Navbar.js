@@ -8,7 +8,6 @@ import Logout from './Logout'
 import { NavLink } from 'react-router-dom'
 
 
-
 class Navigationbar extends React.Component {
     componentDidMount() {
         this.props.checkAuth();
