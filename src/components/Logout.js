@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { logoutUser } from "../actions/auth"
 import { useHistory } from "react-router-dom"
 import Nav from 'react-bootstrap/Nav'
+import { NavLink } from 'react-router-dom'
 
 const Logout = ({ logoutUser }) => {
   const history = useHistory();
@@ -12,7 +13,7 @@ const Logout = ({ logoutUser }) => {
   };
 
   return (
-    <Nav.Link href="/" onClick={handleClick}>Logout</Nav.Link>
+    <Nav.Link as={NavLink} exact to="/" onClick={handleClick}>Logout</Nav.Link>
   );
 };
 
