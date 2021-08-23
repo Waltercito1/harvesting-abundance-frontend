@@ -1,5 +1,6 @@
 //import { Link } from 'react-router-dom'
 //import { Redirect } from 'react-router-dom'
+//import MapContainer from '../../containers/MapContainer'
 import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import { removeTree } from '../../actions/index'
@@ -7,25 +8,26 @@ import { connect } from 'react-redux'
 
 class ShowTree extends Component {
 
+    
     handleClick = () => {
         const removePromise = new Promise((resolve) => {
-        console.log('start fetch')
-        this.props.removeTree(this.props.location.state.id)
-        resolve(null)
-    })
-    removePromise.then(() => {
+            console.log('start fetch')
+            this.props.removeTree(this.props.location.state.id)
+            resolve(null)
+        })
+        removePromise.then(() => {
             this.props.history.push("/trees")
-    })}
-
-    formatImg = () => this.props.location.state.image_format ? this.props.location.state.image_format.url : "https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg"
-    
-    conditionalBttn = () => this.props.location.state.users[0].id !== this.props.currentUser.id ? <></> : <button className="btn btn-danger" onClick={() => this.handleClick()}>Delete</button>
-
-
-    render() {
-    
-        return(
-            <div>
+        })}
+        
+        formatImg = () => this.props.location.state.image_format ? this.props.location.state.image_format.url : "https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg"
+        
+        conditionalBttn = () => this.props.location.state.users[0].id !== this.props.currentUser.id ? <></> : <button className="btn btn-danger" onClick={() => this.handleClick()}>Delete</button>
+        
+        
+        render() {
+            
+            return(
+                <div>
             <Container fluid >
                 <div className="row mb-4 align-items-center">
                     <div className="col-md-6 aos-init aos-animate">
@@ -42,6 +44,7 @@ class ShowTree extends Component {
                         <div className="col-md-3 ml-auto" >
                         <div className="sticky-content">
                             <h3 className="h3">Location</h3>
+                            {/* <MapContainer/> */}
                             <p className="mb-4"><span className="text-muted">Latitude: {this.props.location.state.locations[0].latitude}</span></p>
                             <p className="mb-4"><span className="text-muted">Longitude: {this.props.location.state.locations[0].longitude}</span></p>
 
@@ -59,8 +62,7 @@ class ShowTree extends Component {
                             <li>Yield</li>
                             </ul>
 
-                            <button type="button" className="btn btn-info">Edit</button><br /><br />
-                            {/* <button type="button" className="btn btn-danger">Delete</button> */}
+                            {/* <button type="button" className="btn btn-info">Edit</button><br /><br /> */}
                             {this.conditionalBttn()}
                         </div>
                         </div>
@@ -68,12 +70,14 @@ class ShowTree extends Component {
                     </div>
                 </div>
             </Container>
+            
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
+    //debugger
     return {
         currentUser: state.auth.currentUser
     }

@@ -16,7 +16,6 @@ const getToken = () => {
 
 const removeToken = () => {
   localStorage.removeItem("token")
-  //setToken(null)
 }
 
 export const signupUser = (credentials) => {

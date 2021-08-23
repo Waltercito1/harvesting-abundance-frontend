@@ -12,11 +12,9 @@ const getToken = () => {
 const checkForType = (json) => {
     for (const el in json) {
         if (el === "id") {
-            console.log('found ID', json[el])
             json[el] = parseInt(json[el])
         }
         else if (typeof json[el] === 'object') {
-            console.log('this was an object', json[el])
             checkForType(json[el])
         }
     }
@@ -24,7 +22,6 @@ const checkForType = (json) => {
 }
 
 export function addTree(tree){
-
     return(dispatch) => {
         const configObj = {
             method: 'POST',
@@ -34,9 +31,8 @@ export function addTree(tree){
             },
             body: tree
         }
-
     dispatch({type: DATABASE_SAVING, payload: true})
-    fetch("http://localhost:3000/trees", configObj)
+    return fetch("http://localhost:3000/trees", configObj)
         .then(resp => {
             if (resp.ok) {
                 return resp
@@ -84,7 +80,7 @@ export function fetchTrees() {
                         });
             }
         })
-        // .catch(err => dispatch({type: ERROR, payload: err}))      
+        .catch(err => dispatch({type: ERROR, payload: err}))      
     }
 }
 
@@ -112,5 +108,5 @@ export const removeTree = (treeId) => (dispatch) => {
                     });
             }
         })
-        // .catch(err => dispatch({type: ERROR, payload: err}))
+        .catch(err => dispatch({type: ERROR, payload: err}))
     }

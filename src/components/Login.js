@@ -1,8 +1,14 @@
 import React from "react"
 import { connect } from "react-redux"
 import { loginUser } from "../actions/index"
+import { useFormik } from 'formik';
+
+const errorMsgStyles = {
+  color: 'red'
+}
 
 class Login extends React.Component {
+  
   state = {
     email: "",
     password: "",
@@ -31,8 +37,9 @@ class Login extends React.Component {
           <div className="form-icon">
           <span><img height={120} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></span>
           </div>
-          <div className="form-group"><p>Please login to your account</p></div>
-            <p color="#ff1900">{this.state.error && "Invalid email or password"}</p>
+          <div className="form-group"><p>Please login to your account</p>
+            <p style={errorMsgStyles}>{this.state.error && "Invalid email or password"}</p>
+          </div>
           <div className="form-group">
               <input 
               type="text" 

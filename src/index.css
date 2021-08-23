@@ -71,7 +71,7 @@ border-radius: 10px;
 }
 
 .footer{
-  /* margin-top: 1rem; */
+  margin-top: 1rem;
   /* padding: 1rem; */
   /* background-color: rgb(235, 195, 64); */
   position: fixed;
@@ -129,8 +129,7 @@ border-radius: 10px;
 
 /* test */
 
-/* .img-fluid {
-  max-width: 100%;
-  height: auto;
-} */
-
+.error-page-image {
+  min-width: -webkit-fill-available;
+  margin-top: 10px;
+}

@@ -5,6 +5,12 @@ import LoadingSpinner from "./LoadingSpinner"
 import Login from "./Login"
 
 function withAuth(WrappedComponent) {
+
+  const loginMsgStyles = {
+    color: 'red',
+    textAlign: 'center'
+  }
+
   class Wrapper extends React.Component {
     
     componentDidMount() {
@@ -17,8 +23,8 @@ function withAuth(WrappedComponent) {
       } else if (!this.props.loggedIn) {
         return (
           <>
+            <p style={loginMsgStyles}>You need to login to view this page.</p>
             <Login />
-            <p>You need to login to view this page.</p>
           </>
         )
       } else {
