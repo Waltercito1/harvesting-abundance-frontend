@@ -31,7 +31,7 @@ export function addTree(tree){
             },
             body: tree
         }
-    dispatch({type: DATABASE_SAVING, payload: true})
+    dispatch({type: DATABASE_SAVING, payload: false})
     return fetch("http://localhost:3000/trees", configObj)
         .then(resp => {
             if (resp.ok) {

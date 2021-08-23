@@ -14,7 +14,7 @@ export const manageTree = (state = {
         case FETCH_TREES:
             return {trees: action.payload.data, loading: false, error: {}}
         case ERROR:
-            return {...state, errors: action.payload, loading: false}
+            return {...state, errors: action.payload}
         case ADD_TREE:
             return {...state, trees: [...state.trees, action.payload], loading: false}
         case REMOVE_TREE:
