@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTree } from '../../actions/index'
 
+const errorMsgStyles = {
+  color: 'red'
+}
+
 class TreeForm extends Component {
 
   imageFile = React.createRef()
-
+  
   state = {
     tree: {
       name: '',
@@ -14,7 +18,7 @@ class TreeForm extends Component {
       longitude: undefined
     }
   }
-
+  
   handleChange = (e) => {
     switch (e.target.name) {
       case "name":
@@ -42,11 +46,12 @@ class TreeForm extends Component {
           break;
         }
       }
-      
-      handleSubmit = (e) => {
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        this.props.addTree(formData)
+
+    handleSubmit = (e) => {
+      e.preventDefault()
+      const formData = new FormData(e.target)
+      this.props.addTree(formData)
+      .then(() => {
         this.setState({
           name: '',
           description: '',
@@ -54,11 +59,16 @@ class TreeForm extends Component {
           longitude: null
         })
         this.props.history.push("/trees")
-      }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }      
       
       render() {
     return(
       <div className="new-tree-form">
+        {this.props.errors && <>{Object.entries(this.props.errors).map(err => <p style={errorMsgStyles}>{`${err[0]}: ${err[1]}`}</p>)}</>}
           <h4>Add a New Tree:</h4>
           <form className="row g-3" onSubmit={this.handleSubmit}>
             <div className="col-md-6">
@@ -106,7 +116,7 @@ class TreeForm extends Component {
               />
             </div>
             <div className="col-md-2" >
-              <button className="btn btn-info">Use My Location</button>
+              <button className="btn btn-sm btn-info">Use My Location</button>
             </div>
             <div className="col-md-6">
               <label htmlFor="image" className="form-label">Add an image:</label>
@@ -128,4 +138,10 @@ class TreeForm extends Component {
   }
 };
 
-export default connect(null, { addTree })(TreeForm)
+const mapStateToProps = (state) => {
+  return {
+    errors: state.trees.errors
+  }
+}
+
+export default connect(mapStateToProps, { addTree })(TreeForm)

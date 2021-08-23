@@ -26,24 +26,20 @@ class App extends Component {
 
   render() {
 
-    if (!!this.props.error) {
-      return <ErrorPage error={this.props.error} />
-    }
-
     return(
       <div className="container fluid">
         <Router>
           <Navigationbar />
           <Switch>
-            <Route exact path="/" component={withAuth(Home)} />
-            <Route exact path='/signup' component={withAuth(Signup)} />
-            <Route exact path='/login' component={withAuth(Login)} />
-            <Route exact path="/trees/new" component={withAuth(TreeForm)} />
+            <Route exact path="/" component={Home} />
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
+            {/* <Route exact path="/trees/new" component={withAuth(TreeForm)} /> */}
+            <Route exact path="/trees/new" component={TreeForm} />
             <Route exact path="/trees" render={routeProps => (<AuthenticatedTreesContainer {...routeProps}/>)} />
-            <Route exact path="/map" component={withAuth(MapContainer)}/>
-            <Route exact path="/about" component={withAuth(About)}/>
+            <Route exact path="/map" component={MapContainer}/>
+            <Route exact path="/about" component={About}/>
             <Route exact path="/trees/:id" render={routeProps => (<AuthenticatedShowTree {...routeProps}/>)}/>
-            
             <Route component={ErrorPage} />
           </Switch>
         </Router>
@@ -55,7 +51,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (currentState) => {
-  //debugger
   return {
     trees: currentState.trees.trees,
     loading: currentState.trees.loading,

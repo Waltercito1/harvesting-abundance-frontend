@@ -26,6 +26,11 @@ class Navigationbar extends React.Component {
                         <Nav.Link as={NavLink} exact to="/trees/new">Add location</Nav.Link>
                         <Nav.Link as={NavLink} exact to="/map">Map</Nav.Link>
                         <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
+                        </Nav>
+                        <Nav>
+                        <span className="navbar-text ms-auto">
+                            Signed in as: {currentUser.first_name} {currentUser.last_name} |
+                        </span>
                         <Logout/>
                     </Nav>   
                 </Container>

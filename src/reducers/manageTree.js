@@ -2,7 +2,8 @@ import {ADD_TREE, REMOVE_TREE, FETCH_TREES, DATABASE_INSPECTING, DATABASE_SAVING
 
 export const manageTree = (state = {
     trees: [],
-    loading: false
+    loading: false,
+    errors: {}
   }, action) => {
     switch (action.type) {
         
@@ -11,14 +12,14 @@ export const manageTree = (state = {
         case DATABASE_SAVING:
             return {...state, loading: action.payload}
         case FETCH_TREES:
-            return {trees: action.payload.data, loading: false, error: ""}
+            return {trees: action.payload.data, loading: false, error: {}}
         case ERROR:
-            return {...state, error: action.payload, loading: false}
+            return {...state, errors: action.payload, loading: false}
         case ADD_TREE:
             return {...state, trees: [...state.trees, action.payload], loading: false}
         case REMOVE_TREE:
             const trees = state.trees.filter(tree => tree.id !== action.payload);
-        return { trees, loading: false }
+        return { ...state, trees, loading: false }
   
         default:
             return state;
