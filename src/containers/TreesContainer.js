@@ -8,7 +8,6 @@ class TreesContainer extends Component {
     render() {
         return(
             <div>
-                {/* <TreeForm /> */}
                 <Trees trees={this.props.trees} />
             </div>
         )
