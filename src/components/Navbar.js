@@ -24,7 +24,7 @@ class Navigationbar extends React.Component {
                 <Container>
                     <Navbar.Brand as={NavLink} exact to="/"><img height={40} src="https://harvesting-abundance.s3.us-east-2.amazonaws.com/HarvestingAbundance-Logo1.svg" alt="Harvesting Abundance"></img></Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link as={NavLink} exact to="/trees">Trees You've Added</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/trees">All Trees</Nav.Link>
                         <Nav.Link as={NavLink} exact to="/trees/new">Add location</Nav.Link>
                         <Nav.Link as={NavLink} exact to="/map">Map</Nav.Link>
                         <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
