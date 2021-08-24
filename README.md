@@ -1,7 +1,7 @@
 # Harvesting Abundance
 Single Page Application - Fifth and final portfolio project for Flatiron (102020 - ONL - SE - PT)
 
-Welcome to Harvesting Abundance. This app allows the users to... 
+Welcome to Harvesting Abundance. This app allows the users to securely log-in/sign-up to the app, browse the app and view the details of the already existing trees, create and delete a new tree. 
 
 ## Installation
 You can install this application by running 
@@ -17,7 +17,7 @@ To do so, you can navigate to https://github.com/Waltercito1/harvesting-abundanc
 After you have installed the backend, don't forget to start the server by running ```rails s```
 
 ## Usage
-Please consider watching this short video demonstration which will walk you though the app's features https://. Thank you and have fun!
+Please consider watching this short video demonstration which will walk you though the app's features https://youtu.be/yKy0Jd3AeZk. Thank you and have fun!
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/Waltercito1/harvesting-abundance-frontend.
