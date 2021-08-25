@@ -11,7 +11,6 @@ class ShowTree extends Component {
     
     handleClick = () => {
         const removePromise = new Promise((resolve) => {
-            console.log('start fetch')
             this.props.removeTree(this.props.location.state.id)
             resolve(null)
         })

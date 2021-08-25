@@ -67,7 +67,6 @@ export function fetchTrees() {
                 return resp
                         .json()
                         .then(json => {
-                            console.log(json)
                             checkForType(json)
                             dispatch( {type: FETCH_TREES, payload: json} ) 
                         })
