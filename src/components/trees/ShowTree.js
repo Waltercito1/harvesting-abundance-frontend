@@ -1,10 +1,10 @@
-//import { Link } from 'react-router-dom'
-//import { Redirect } from 'react-router-dom'
-//import MapContainer from '../../containers/MapContainer'
 import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import { removeTree } from '../../actions/index'
 import { connect } from 'react-redux'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
+
 
 class ShowTree extends Component {
 
@@ -20,8 +20,23 @@ class ShowTree extends Component {
         
         formatImg = () => this.props.location.state.image_format ? this.props.location.state.image_format.url : "https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg"
         
-        conditionalBttn = () => this.props.location.state.users[0].id !== this.props.currentUser.id ? <></> : <button className="btn btn-danger" onClick={() => this.handleClick()}>Delete</button>
+        conditionalBttn = () => this.props.location.state.users[0].id !== this.props.currentUser.id ? <></> : <button className="btn btn-danger" onClick={() => this.handleAlert()}>Delete</button>
         
+        handleAlert = () => {
+            confirmAlert({
+              message: 'Are you sure?',
+              buttons: [
+                {
+                  label: 'Yes',
+                  onClick: () => this.handleClick()
+                },
+                {
+                  label: 'No',
+                  onClick: () => this.props.history.push("/trees")
+                }
+              ]
+            })
+        }
         
         render() {
             return(
