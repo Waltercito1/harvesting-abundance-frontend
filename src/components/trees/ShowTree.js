@@ -8,7 +8,23 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 
 class ShowTree extends Component {
 
+    // Live coding challenge - add a like button
+    constructor(props) {
+        super(props)
+
+        this.state = {
+          likes: 0
+        }
+    }
     
+    handleAddLike = () => {
+        this.setState((prevState) => {
+            return {
+              likes: prevState.likes + 1
+            }
+        })
+    }
+
     handleClick = () => {
         const removePromise = new Promise((resolve) => {
             this.props.removeTree(this.props.location.state.id)
@@ -17,11 +33,11 @@ class ShowTree extends Component {
         removePromise.then(() => {
             this.props.history.push("/trees")
         })}
-        
+
         formatImg = () => this.props.location.state.image_format ? this.props.location.state.image_format.url : "https://harvesting-abundance.s3.us-east-2.amazonaws.com/No-Image-Placeholder.svg"
-        
+
         conditionalBttn = () => this.props.location.state.users[0].id !== this.props.currentUser.id ? <></> : <button className="btn btn-danger" onClick={() => this.handleAlert()}>Delete</button>
-        
+
         handleAlert = () => {
             confirmAlert({
               message: 'Are you sure?',
@@ -37,12 +53,16 @@ class ShowTree extends Component {
               ]
             })
         }
-        
+
         render() {
             return(
             <div>
                 <Container fluid >
                     <div className="row mb-4 align-items-center">
+                        <div>
+                            <button className="btn btn-info" onClick={this.handleAddLike}> like </button>
+                            <p>{this.state.likes}</p>
+                        </div>
                         <div className="col-md-6 aos-init aos-animate">
                             <h2>{this.props.location.state.name}</h2>
                             <p>{this.props.location.state.description}</p>
@@ -84,7 +104,7 @@ class ShowTree extends Component {
                         </div>
                     </div>
                 </Container>
-            
+
             </div>
         )
     }
