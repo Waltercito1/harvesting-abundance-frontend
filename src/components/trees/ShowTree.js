@@ -8,23 +8,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 
 class ShowTree extends Component {
 
-    // Live coding challenge - add a like button
-    constructor(props) {
-        super(props)
-
-        this.state = {
-          likes: 0
-        }
-    }
-    
-    handleAddLike = () => {
-        this.setState((prevState) => {
-            return {
-              likes: prevState.likes + 1
-            }
-        })
-    }
-
     handleClick = () => {
         const removePromise = new Promise((resolve) => {
             this.props.removeTree(this.props.location.state.id)
@@ -59,10 +42,6 @@ class ShowTree extends Component {
             <div>
                 <Container fluid >
                     <div className="row mb-4 align-items-center">
-                        <div>
-                            <button className="btn btn-info" onClick={this.handleAddLike}> like </button>
-                            <p>{this.state.likes}</p>
-                        </div>
                         <div className="col-md-6 aos-init aos-animate">
                             <h2>{this.props.location.state.name}</h2>
                             <p>{this.props.location.state.description}</p>
@@ -86,7 +65,8 @@ class ShowTree extends Component {
                                 <p>Show small Map Conatiner with location.</p>
                                 </div>
 
-                                <h4 className="h4 mb-3">Details:</h4>
+                                {/* Tree details hardcoded for now - Work in progress */}
+                                <h4 className="h4 mb-3">Details:</h4>          
                                 <ul className="list-unstyled list-line mb-5">
                                 <li>Access Type</li>
                                 <li>Season</li>
@@ -96,7 +76,6 @@ class ShowTree extends Component {
                                 <li>Yield</li>
                                 </ul>
 
-                                {/* <button type="button" className="btn btn-info">Edit</button><br /><br /> */}
                                 {this.conditionalBttn()}
                             </div>
                             </div>
@@ -111,7 +90,6 @@ class ShowTree extends Component {
 }
 
 const mapStateToProps = (state) => {
-    //debugger
     return {
         currentUser: state.auth.currentUser
     }
