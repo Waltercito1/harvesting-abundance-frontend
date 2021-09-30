@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 const mapStyles = {
   map: {
     position: 'absolute',
-    width: '72.2vw',
+    width: '67.5vw',
     height: '50vh'
   }
 };
