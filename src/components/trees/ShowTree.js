@@ -73,7 +73,7 @@ class ShowTree extends Component {
                                 <li>Date Visited</li>
                                 <li>Fruiting Status</li>
                                 <li>Quality</li>
-                                <li>Yield</li>
+                                <li>Yield per Season</li>
                                 </ul>
 
                                 {this.conditionalBttn()}
