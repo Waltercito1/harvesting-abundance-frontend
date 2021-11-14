@@ -36,7 +36,7 @@ class App extends Component {
             <Route exact path='/login' component={Login} />
             <Route exact path="/trees/new" component={withAuth(TreeForm)} />
             <Route exact path="/trees" render={routeProps => (<AuthenticatedTreesContainer {...routeProps}/>)} />
-            <Route exact path="/map" component={MapContainer} />
+            <Route exact path="/map" render={() => <MapContainer height='80vh'/>} />
             <Route exact path="/about" component={About} />
             <Route exact path="/trees/:id" render={routeProps => (<AuthenticatedShowTree {...routeProps}/>)}/>
             <Route component={ErrorPage} />
