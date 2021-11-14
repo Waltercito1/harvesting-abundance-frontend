@@ -1,14 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const mapStyles = {
-  map: {
-    position: 'absolute',
-    width: '72vw',
-    height: '50vh'
-  }
-};
-
 export class CurrentLocation extends React.Component {
         constructor(props) {
         super(props);
@@ -20,6 +12,15 @@ export class CurrentLocation extends React.Component {
             lat: lat,
             lng: lng
             }
+        };
+
+        this.mapStyles = {
+          map: {
+            position: 'relative',
+            width: '100%',
+            height: this.props.height,
+            minHeight: '320px'
+          }
         };
     }
 
@@ -106,7 +107,7 @@ export class CurrentLocation extends React.Component {
     }
 
     render() {
-        const style = Object.assign({}, mapStyles.map);
+        const style = Object.assign({}, this.mapStyles.map);
     
         return (
           <div>
