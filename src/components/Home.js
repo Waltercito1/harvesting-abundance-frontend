@@ -19,7 +19,7 @@ const Home = () => {
                         Not just a free lunch! Foraging in the 21st century is an opportunity for urban exploration, to fight the scourge of stained sidewalks, and to reconnect with the botanical origins of food.</p>
                 </div><br/>
                 <div>
-                 <MapContainer />
+                 <MapContainer height="50vh"/>
                 </div>
             </div>
         </div>    
