@@ -47,43 +47,44 @@ class ShowTree extends Component {
                             <p>{this.props.location.state.description}</p>
                         </div>
                     </div>
-                    <div className="site-section pb-0">
-                        <div >
-                        <div className="row align-items-stretch">
-                            <div className="col-md-8 aos-init aos-animate" >
-                                <img src={this.formatImg()} alt="treeImage" className="img-fluid" width={600}style={{objectFit: 'cover', padding: '0 0 0 1em'}}/>
-                            </div>
-                            <div className="col-md-3 ml-auto" >
-                            <div className="sticky-content">
-                                <h3 className="h3">Location</h3>
-                                {/* <MapContainer/> */}
+                    <div className="row g-3">
+                        <div className="site-section pb-0">
+                            <div className="col-md-10">
+                                <div className="row align-items-stretch">
+                                    <div className="col-md-8 aos-init aos-animate" >
+                                        <img src={this.formatImg()} alt="treeImage" className="img-fluid" width={600}style={{objectFit: 'cover', padding: '0 0 0 1em'}}/>
+                                    </div>
+                                    <div className="col-md-3 ml-auto" >
+                                    <div className="sticky-content">
+                                        <h3 className="h3">Location</h3>
+                                        {/* <MapContainer/> */}
 
-                                {this.props.location.state.locations[0] && <p className="mb-4"><span className="text-muted">Latitude: {this.props.location.state.locations[0].latitude}</span></p>}
-                                {this.props.location.state.locations[0] && <p className="mb-4"><span className="text-muted">Longitude: {this.props.location.state.locations[0].longitude}</span></p>}
+                                        {this.props.location.state.locations[0] && <p className="mb-4"><span className="text-muted">Latitude: {this.props.location.state.locations[0].latitude}</span></p>}
+                                        {this.props.location.state.locations[0] && <p className="mb-4"><span className="text-muted">Longitude: {this.props.location.state.locations[0].longitude}</span></p>}
 
-                                <div className="mb-5">
-                                <p>Show small Map Conatiner with location.</p>
+                                        <div className="mb-5">
+                                        <p>Show small Map Conatiner with location.</p>
+                                        </div>
+
+                                        {/* Tree details hardcoded for now - Work in progress */}
+                                        <h4 className="h4 mb-3">Details:</h4>          
+                                        <ul className="list-unstyled list-line mb-5">
+                                        <li>Access Type</li>
+                                        <li>Season</li>
+                                        <li>Date Visited</li>
+                                        <li>Fruiting Status</li>
+                                        <li>Quality</li>
+                                        <li>Yield per Season</li>
+                                        </ul>
+
+                                        {this.conditionalBttn()}
+                                    </div>
+                                    </div>
                                 </div>
-
-                                {/* Tree details hardcoded for now - Work in progress */}
-                                <h4 className="h4 mb-3">Details:</h4>          
-                                <ul className="list-unstyled list-line mb-5">
-                                <li>Access Type</li>
-                                <li>Season</li>
-                                <li>Date Visited</li>
-                                <li>Fruiting Status</li>
-                                <li>Quality</li>
-                                <li>Yield per Season</li>
-                                </ul>
-
-                                {this.conditionalBttn()}
                             </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </Container>
-
             </div>
         )
     }
